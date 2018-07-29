@@ -1,0 +1,21 @@
+{
+  "name": "uniforms-masked-phone-field",
+  "version": "0.0.0",
+  "description": "React component for unifroms-material with input mask",
+  "main": "lib/field.js",
+  "scripts": {
+    "build": "tsc --outDir ./lib"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^16.4.1",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "@material-ui/core": "^1.4.1",
+    "@material-ui/icons": "^2.0.0",
+    "country-telephone-data": "^0.5.5",
+    "react-text-mask": "^5.4.3",
+    "uniforms-material": "^1.25.0"
+  }
+}
