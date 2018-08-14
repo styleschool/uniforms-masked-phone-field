@@ -12,7 +12,7 @@ npm i styleschool/uniforms-masked-phone-field
 
 ```jsx
 import { MaskedUniformsPhoneField } from 'uniforms-masked-phone-field';
-import { AutoForm } from 'uniforms-material';
+import { AutoForm, AutoField } from 'uniforms-material';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms/SimpleSchema2Bridge';
 
@@ -23,7 +23,15 @@ const Bridge = new SimpleSchema2Bridge(new SimpleSchema({
       component: (props: any) => <MaskedUniformsPhoneField {...props} />,
     },
   },
+  // Region filed auto-implemented in MaskedUniformsPhoneField.
+  // It have no need to be placed in Autoform manualy.
+  // ATTEMPT! You must use AutoForm component with AutoFiled, but not by itself.
+  region: {
+    type: String,
+  }
 }));
 
-<AutoForm schema={Bridge} />
+<AutoForm schema={Bridge}>
+  <AutoField filed="phone">
+</AutoForm>
 ```
