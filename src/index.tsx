@@ -145,7 +145,7 @@ export default class UniformsMaskedPhoneField<
             label={false}
           />}
         <HiddenField
-          name={this.props.regionFieldName}
+          name={regionFieldName}
           value={this.state.lang}
         />
       </span>;

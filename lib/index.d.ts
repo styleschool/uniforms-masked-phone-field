@@ -22,7 +22,12 @@ export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneField
     static defaultProps: {
         country: string;
         showMenu: boolean;
-        countries: any;
+        countries: {
+            name: string;
+            iso2: string;
+            format: string;
+            dialCode: string;
+        }[];
         regionFieldName: string;
     };
     handleClick: (event: any) => void;
