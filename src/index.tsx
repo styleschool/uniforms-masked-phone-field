@@ -100,7 +100,7 @@ export default class UniformsMaskedPhoneField<
     }
   render() {
     const { anchorEl, lang } = this.state;
-    const { country, showMenu, ...props } = this.props;
+    const { country, showMenu, regionFieldName, ...props } = this.props;
     return <span>
         {this.state.disabled ? null :
           <UniformsTextField

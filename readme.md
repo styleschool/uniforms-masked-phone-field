@@ -32,6 +32,6 @@ const Bridge = new SimpleSchema2Bridge(new SimpleSchema({
 }));
 
 <AutoForm schema={Bridge}>
-  <AutoField filed="phone"/>
+  <AutoField name="phone"/>
 </AutoForm>
 ```
