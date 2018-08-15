@@ -3,7 +3,6 @@ import { IconButton, Menu, MenuItem, InputAdornment } from '@material-ui/core';
 import TextMask, { maskArray } from 'react-text-mask';
 import { allCountries } from 'country-telephone-data';
 import { TextField as UniformsTextField, HiddenField } from 'uniforms-material';
-import BaseField from 'uniforms/BaseField';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 var defaultMasks = [{
@@ -19,14 +18,14 @@ for (var m = 0; m < allCountries.length; m++) {
   }
 }
 
-function createMask(lang: any) {
-  for (let i = 0; i < defaultMasks.length; i++) {
-    if (defaultMasks[i].iso2 === lang) {
-      let code = (defaultMasks[i].dialCode + '').split('');
-      let mask: any = defaultMasks[i].format.split('');
+function createMask(lang: any, masks: any) {
+  for (let i = 0; i < masks.length; i++) {
+    if (masks[i].iso2 === lang) {
+      let code = (masks[i].dialCode + '').split('');
+      let mask: any = masks[i].format.split('');
       for (
         let j = 0, count = 0;
-        j < mask.length && defaultMasks[i].format;
+        j < mask.length && masks[i].format;
         j++
       ) {
         if (mask && mask[j] === '.') {
@@ -74,17 +73,16 @@ export default class UniformsMaskedPhoneField<
   P extends UniformsMaskedPhoneFieldProps,
   S extends UniformsMaskedPhoneFieldStates
 > extends React.Component<any, any> {
-  static contextTypes = BaseField.contextTypes;
   state = {
     lang: this.props.country,
     anchorEl: null,
-    mask: createMask(this.props.country),
+    mask: createMask(this.props.country, this.props.countries),
     disabled: false,
   };
   static defaultProps = {
     country: 'ru',
     showMenu: true,
-    countries: allCountries,
+    countries: defaultMasks,
     regionFieldName: 'region'
   };
 
@@ -94,7 +92,7 @@ export default class UniformsMaskedPhoneField<
     this.setState({
       lang,
       anchorEl: null,
-      mask: createMask(lang),
+      mask: createMask(lang, this.props.countries),
       disabled: true
     });
   componentDidUpdate() {
