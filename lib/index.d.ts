@@ -7,12 +7,12 @@ export interface UniformsMaskedPhoneFieldStates {
     disabled: boolean;
 }
 export interface UniformsMaskedPhoneFieldProps {
-    country: string;
     showMenu: boolean;
     countries: any;
     regionFieldName: string;
 }
 export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneFieldProps, S extends UniformsMaskedPhoneFieldStates> extends React.Component<any, any> {
+    static contextTypes: any;
     state: {
         lang: any;
         anchorEl: any;
@@ -20,7 +20,6 @@ export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneField
         disabled: boolean;
     };
     static defaultProps: {
-        country: string;
         showMenu: boolean;
         countries: {
             name: string;
