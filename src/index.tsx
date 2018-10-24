@@ -88,6 +88,10 @@ export default class UniformsMaskedPhoneField<
 
   handleClick = (event: any) =>
     this.setState({ anchorEl: event.currentTarget });
+  
+  handleClose = () => 
+    this.setState({ anchorEl: null });
+
   handleLang = (lang: any) =>
     this.setState({
       lang,
@@ -122,6 +126,7 @@ export default class UniformsMaskedPhoneField<
                     id="Lang-manu"
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
+                    onClose={this.handleClose}
                     PaperProps={{
                       style: {
                         maxHeight: 216,
