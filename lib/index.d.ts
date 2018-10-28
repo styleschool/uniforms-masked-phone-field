@@ -30,6 +30,7 @@ export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneField
         regionFieldName: string;
     };
     handleClick: (event: any) => void;
+    handleClose: () => void;
     handleLang: (lang: any) => void;
     componentDidUpdate(): void;
     render(): JSX.Element;
