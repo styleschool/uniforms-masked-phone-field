@@ -11,8 +11,8 @@ export interface UniformsMaskedPhoneFieldProps {
     showMenu: boolean;
     countries: any;
     regionFieldName: string;
-    recommendedCodes: number[];
     search: boolean;
+    [key: string]: any;
 }
 export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneFieldProps, S extends UniformsMaskedPhoneFieldStates> extends React.Component<any, any> {
     static contextTypes: any;
@@ -32,7 +32,6 @@ export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneField
             dialCode: string;
         }[];
         regionFieldName: string;
-        recommendedCodes: any[];
     };
     handleClick: (event: any) => void;
     handleClose: () => void;

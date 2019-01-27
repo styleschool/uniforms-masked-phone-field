@@ -69,8 +69,8 @@ export interface UniformsMaskedPhoneFieldProps {
   showMenu: boolean;
   countries: any;
   regionFieldName: string;
-  recommendedCodes: number[];
   search: boolean;
+  [key: string]: any;
 }
 
 export default class UniformsMaskedPhoneField<
@@ -92,7 +92,6 @@ export default class UniformsMaskedPhoneField<
     showMenu: true,
     countries: defaultMasks,
     regionFieldName: 'region',
-    recommendedCodes: [],
   };
 
   handleClick = (event: any) =>
@@ -112,12 +111,7 @@ export default class UniformsMaskedPhoneField<
   }
   render() {
     const { anchorEl, lang } = this.state;
-    const {
-      showMenu,
-      regionFieldName,
-      recommendedCodes,
-      ...props
-    } = this.props;
+    const { showMenu, regionFieldName, ...props } = this.props;
     return (
       <span>
         {this.state.disabled ? null : (
