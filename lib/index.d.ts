@@ -5,11 +5,14 @@ export interface UniformsMaskedPhoneFieldStates {
     anchorEl?: HTMLElement | null;
     mask: maskArray | ((value: string) => maskArray);
     disabled: boolean;
+    search: string;
 }
 export interface UniformsMaskedPhoneFieldProps {
     showMenu: boolean;
     countries: any;
     regionFieldName: string;
+    recommendedCodes: number[];
+    search: boolean;
 }
 export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneFieldProps, S extends UniformsMaskedPhoneFieldStates> extends React.Component<any, any> {
     static contextTypes: any;
@@ -18,6 +21,7 @@ export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneField
         anchorEl: any;
         mask: any;
         disabled: boolean;
+        search: string;
     };
     static defaultProps: {
         showMenu: boolean;
@@ -28,6 +32,7 @@ export default class UniformsMaskedPhoneField<P extends UniformsMaskedPhoneField
             dialCode: string;
         }[];
         regionFieldName: string;
+        recommendedCodes: any[];
     };
     handleClick: (event: any) => void;
     handleClose: () => void;

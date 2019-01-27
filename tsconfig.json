@@ -5,9 +5,7 @@
     "target": "es2015",
     "jsx": "react",
     "lib": ["dom", "es2015", "es2017"],
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "noImplicitAny": false
   },
   "include": [
     "src",
